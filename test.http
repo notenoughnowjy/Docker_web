@@ -1,0 +1,81 @@
+###
+GET http://localhost:8080/task/
+
+###
+GET http://localhost:8080/task/1
+
+''' 결과
+HTTP/1.1 204 No Content
+X-Powered-By: Express
+ETag: W/"b-EFAlOux7Kcr/ZEgGkn2r+oFAbu4"
+Date: Wed, 15 Nov 2023 18:10:53 GMT
+Connection: close
+'''
+
+###
+GET http://localhost:8080/task/abc
+
+''' 결과
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 21
+ETag: W/"15-dYAINQtMXm+eT0Wm+OrSFoljXzg"
+Date: Wed, 15 Nov 2023 18:11:35 GMT
+Connection: close
+
+{
+  "error": "ID is Nan"
+}
+'''
+
+### 
+POST http://localhost:8080/task
+Content-Type: application/json; charset=UTF-8
+
+{
+  "owner": "oralcoder"
+}
+
+### 
+POST http://localhost:8080/task
+Content-Type: application/json; charset=UTF-8
+
+{
+  "title": "study",
+  "owner": "oralcoder"
+}
+
+### 
+GET http://localhost:8080/task/
+
+###
+GET http://localhost:8080/task/8
+
+
+### 
+PUT http://localhost:8080/task
+Content-Type: application/json; charset=UTF-8
+
+###
+PUT http://localhost:8080/task
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": 8,
+  "owner": "anonymous",
+  "completed": true
+}
+
+### 
+PUT http://localhost:8080/task
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": 8,
+  "owner": "oralcoder",
+  "completed": true
+}
+
+###
+GET http://localhost:8080/task/8
